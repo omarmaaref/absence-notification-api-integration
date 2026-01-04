@@ -2,7 +2,8 @@
 
 ## Overview
 
-This project implements a CRM-integrated solution for **absence notification processing**.  
+This project implements a CRM-integrated solution that automatically generates absence notifications on a monthly basis based on recorded absences.
+
 It automates data retrieval from Zoho CRM, applies business logic to assemble **Absence Notifications** for each Deal, creates records within Zoho, and generates pre-filled **AcroForm PDFs** from a template.
 
 ## Features
@@ -33,5 +34,17 @@ It automates data retrieval from Zoho CRM, applies business logic to assemble **
 - **Zoho CRM API** (through internal `zoho-service`)
 - **pdf-lib** (for AcroForm PDF manipulation)
 - **Docker / Docker Compose** (for deploying services)
+
+## Process Diagram
+
+![Absence Notification Process Diagram](static/process-diagram.png)
+
+## Example Absence Notification PDF
+
+An example of a generated Absence Notification record with 2 attached absences:
+
+![Example Absence Notification PDF](static/absence-notif-example.png)
+
+
 
 > **Note:** This codebase is a demonstration and not production-ready. It provides a subset of services and features to illustrate integration architecture and workflow. Real-world usage requires further development, configuration, and integration with live external systems.
