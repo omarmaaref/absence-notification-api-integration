@@ -1,0 +1,13 @@
+{
+  "name": "zoho-types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/zoho/types/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project zoho-types --web",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

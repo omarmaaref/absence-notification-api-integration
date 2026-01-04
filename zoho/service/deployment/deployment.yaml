@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoho-service-deployment
+
+spec:
+  replicas: 1 # Number of instances (pods) to run
+
+  selector:
+    matchLabels:
+      app: zoho-service
+
+  template:
+    metadata:
+      labels:
+        app: zoho-service
+
+    spec:
+      containers:
+        - name: zoho-service-container
+          image: zoho-service:{{VERSION}} # placeholder
+          imagePullPolicy: IfNotPresent
+
+          # set limits
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '250m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
+
+          env:
+            # common ---------------------
+            - name: TZ
+              value: Europe/Berlin
+            - name: NODE_ENV
+              value: production
+
+            # service name
+            - name: SERVICE_NAME
+              value: zoho-service
+
+            # own api ---------------------
+            # - name: SERVICE_PORT
+            #   value: '3000' # default
+            - name: GLOBAL_PREFIX
+              value: 'api'
+            - name: API_PREFIX
+              value: v
+            - name: API_VERSION
+              value: '1'
+
+            # external route ----------------------------------
+            # ZOHO Base-url
+            - name: ZOHO_CRM_BASE_URL
+              value: 'https://www.zohoapis.eu/crm/'
+            - name: ZOHO_CRM_API_VERSION
+              value: 'v7'
+
+            # DEV ------------------------
+            - name: ENABLE_SWAGGER
+              value: 'true'
+
+          # secrets from .env.local
+          envFrom:
+            - secretRef:
+                name: zoho-service-secret
+
+---
+# Service -----------------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: zoho-service-service
+spec:
+  type: NodePort # for DEV
+  selector:
+    app: zoho-service
+  ports:
+    - protocol: TCP
+      name: http
+      # nodePort: 30001 # for DEV - The port on the node where external traffic will come in on (requires type NodePort obove)
+      port: 3000 # The port of this service
+      targetPort: 3000 # The target port on the pod(s) to forward traffic to
+

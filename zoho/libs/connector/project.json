@@ -1,0 +1,18 @@
+{
+  "name": "zoho-connector",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/zoho/libs/connector/src",
+  "projectType": "library",
+  "tags": [],
+  "implicitDependencies": ["zoho-service"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}

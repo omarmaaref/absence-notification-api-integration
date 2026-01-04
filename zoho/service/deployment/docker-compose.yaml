@@ -1,0 +1,45 @@
+# ----------------------------------------
+# docker-compose for local docker version
+# ----------------------------------------
+
+# name: 'Zoho-Service'
+
+services:
+  # 2) Gateway -------------------------------------------------------
+  zoho-service:
+    container_name: 'Zoho-Service'
+    image: zoho-service:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M # Memory usage: ???
+
+    restart: always
+
+    # expose external (for development only)
+    # swagger
+    ports:
+      - 3002:3000
+
+    environment:
+      # timezone
+      TZ: Europe/Berlin
+
+      # mode
+      NODE_ENV: production
+
+      # service name
+      SERVICE_NAME: 'zoho-service'
+
+      # prefix and version
+      GLOBAL_PREFIX: api
+      API_PREFIX: v
+      API_VERSION: 1
+
+      # ZOHO Base-url
+      ZOHO_CRM_BASE_URL: 'https://www.zohoapis.eu/crm/'
+      ZOHO_CRM_API_VERSION: 'v7'
+
+      # dev
+      ENABLE_SWAGGER: true

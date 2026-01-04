@@ -1,0 +1,9 @@
+{
+  "name": "acroform-pdf-editor",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/absences-notification/libs/acroform-pdf-editor/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project acroform-pdf-editor --web",
+  "targets": {}
+}

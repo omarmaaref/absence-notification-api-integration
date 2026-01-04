@@ -1,0 +1,9 @@
+{
+  "name": "zoho-external-connector",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/zoho/libs/external-connector/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project zoho-external-connector --web",
+  "targets": {}
+}

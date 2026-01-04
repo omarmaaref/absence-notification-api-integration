@@ -1,0 +1,124 @@
+{
+  "name": "zoho-service",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/zoho/service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/projects/zoho/service"],
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "projects/zoho/service"
+      },
+      "configurations": {
+        "development": {
+          "args": ["--node-env=development"]
+        },
+        "production": {}
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "zoho-service:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "zoho-service:build:development"
+        },
+        "production": {
+          "buildTarget": "zoho-service:build:production"
+        }
+      }
+    },
+
+    "deploy-docker-kube": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "dockerize-script",
+        {
+          "projects": ["api-service"],
+          "target": "deploy-docker-kube"
+        }
+      ],
+      "options": {
+        "parallel": false,
+        "cwd": "{projectRoot}",
+        "commands": [
+          "kubectl config use-context docker-desktop",
+          "kubectl create namespace microservices --dry-run=client -o yaml | kubectl apply -f -",
+          "VERSION=$(node -p \"require('./package.json').version\") && kubectl kustomize . | sed \"s/{{VERSION}}/${VERSION}/g\" | kubectl apply -f -"
+        ]
+      }
+    },
+    "undeploy-docker-kube": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "{projectRoot}",
+        "commands": [
+          "kubectl config use-context docker-desktop",
+          "kubectl delete -k ."
+        ]
+      }
+    },
+    "dockerize-script": {
+      "executor": "nx:run-commands"
+    }
+  },
+
+  "__diasabled_targets": {
+    "deploy-docker": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["dockerize-local"],
+      "options": {
+        "commands": [
+          "docker compose -f {projectRoot}/docker-compose.yaml up -d"
+        ]
+      }
+    },
+    "undeploy-docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker compose -f {projectRoot}/docker-compose.yaml down"]
+      }
+    },
+    "dockerize-local": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "inputs": [
+        "production",
+        "{projectRoot}/Dockerfile",
+        "{workspaceRoot}/dist/projects/zoho/service/*"
+      ],
+      "options": {
+        "commands": [
+          "docker build -f {projectRoot}/deployment/Dockerfile . -t zoho-service:latest -t zoho-service:$(node -p \"require('./{projectRoot}/package.json').version\")"
+        ]
+      }
+    },
+    "dockerize-gitlab": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "inputs": [
+        "production",
+        "{projectRoot}/Dockerfile",
+        "{workspaceRoot}/dist/projects/zoho/service/*"
+      ],
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker build -f {projectRoot}/deployment/Dockerfile . -t registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service:latest -t registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service:$(node -p \"require('./{projectRoot}/package.json').version\")",
+          "docker push registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service --all-tags"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@velptec/zoho-external-connector",
+  "version": "0.7.2",
+  "private": true,
+  "devDependencies": {
+    "@velptec/utils-lib": "0.8.1",
+    "@velptec/zoho-types": "0.12.0"
+  }
+}

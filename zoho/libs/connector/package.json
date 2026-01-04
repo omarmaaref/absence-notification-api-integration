@@ -1,0 +1,8 @@
+{
+  "name": "@velptec/zoho-connector",
+  "version": "0.8.2",
+  "private": true,
+  "devDependencies": {
+    "@velptec/zoho-types": "0.12.0"
+  }
+}

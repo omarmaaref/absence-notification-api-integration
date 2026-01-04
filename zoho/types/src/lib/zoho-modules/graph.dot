@@ -1,0 +1,31 @@
+digraph Relations {
+
+  pad=0.5
+
+  # modules
+  Deal 
+  ActionSheet 
+  Kursteilnahme
+  Qualifizierungsplan
+  Products
+  Leads
+  Quotes
+
+  
+  # relations
+  Deal -> Products
+  Deal -> Qualifizierungsplan
+  Deal -> Kursteilnahme
+
+  Products -> Deal
+  Products -> Kursteilnahme
+
+  Leads -> Products
+  
+  Quotes -> SalesOrders
+  Quotes -> Qualifizierungsplan
+
+  ActionSheet -> Anlage2
+  ActionSheet -> sheet_entries
+  
+}

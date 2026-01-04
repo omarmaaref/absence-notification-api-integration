@@ -1,0 +1,15 @@
+namespace: microservices
+
+resources:
+  - deployment/deployment.yaml
+
+# Optional: keep the secret name stable (no hash suffix),
+# useful if your manifests refer to the literal name.
+generatorOptions:
+  disableNameSuffixHash: true
+
+# secrets from .env.local
+secretGenerator:
+  - name: zoho-service-secret
+    envs:
+      - .env.local
