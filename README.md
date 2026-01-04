@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a CRM-integrated solution that automatically generates absence notifications on a monthly basis based on recorded absences.
+In this project I implemented a CRM-integrated solution that automatically generates absence notifications on a monthly basis based on recorded absences.
 
 It automates data retrieval from Zoho CRM, applies business logic to assemble **Absence Notifications** for each Deal, creates records within Zoho, and generates pre-filled **AcroForm PDFs** from a template.
 
