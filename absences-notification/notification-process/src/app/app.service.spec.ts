@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppService } from './app.service';
-import { ZohoInternalConnectorService } from '@velptec/zoho-connector';
-import { AcroformPdfEditorService } from '@velptec/acroform-pdf-editor';
+import { ZohoInternalConnectorService } from '@company/zoho-connector';
+import { AcroformPdfEditorService } from '@company/acroform-pdf-editor';
 
 describe('AppService', () => {
   let service: AppService;

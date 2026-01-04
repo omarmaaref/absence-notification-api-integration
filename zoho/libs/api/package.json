@@ -1,10 +1,10 @@
 {
-  "name": "@velptec/zoho-api",
+  "name": "@company/zoho-api",
   "version": "0.9.2",
   "private": true,
   "devDependencies": {
-    "@velptec/zoho-external-connector": "0.7.2",
-    "@velptec/zoho-types": "0.12.0",
-    "@velptec/user-lib": "0.7.1"
+    "@company/zoho-external-connector": "0.7.2",
+    "@company/zoho-types": "0.12.0",
+    "@company/user-lib": "0.7.1"
   }
 }

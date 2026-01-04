@@ -1,4 +1,4 @@
-import { AirtableBaseDTO } from '@velptec/airtable-lib';
+import { AirtableBaseDTO } from '@company/airtable-lib';
 import { Attachment } from '../attachment/attachment.type';
 import { Note } from '../note/note.type';
 import { Quote } from '../quote/quote.type';
@@ -6,7 +6,7 @@ import { Quote } from '../quote/quote.type';
 export type DegreeDesignation = {
   _type?: 'degree_designation';
   Name?: string;
-  velptec_id?: string;
+  company_id?: string;
   id?: string;
   external_id?: string;
   status?: string;

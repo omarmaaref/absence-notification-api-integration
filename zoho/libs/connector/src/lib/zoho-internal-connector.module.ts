@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-// import { ZohoExternalConnectorModule } from '@velptec/zoho-external-connector';
+// import { ZohoExternalConnectorModule } from '@company/zoho-external-connector';
 import { ZohoInternalConnectorService } from './zoho-internal-connector.service';
 import { HttpModule } from '@nestjs/axios';
 

@@ -1,6 +1,6 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AcroformPdfEditorService } from '@velptec/acroform-pdf-editor';
+import { AcroformPdfEditorService } from '@company/acroform-pdf-editor';
 @Controller('absences-notification')
 export class AppController {
   constructor(private readonly acroformPdfEditorService: AcroformPdfEditorService,

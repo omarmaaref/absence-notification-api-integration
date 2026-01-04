@@ -5,7 +5,7 @@ import { LookUp } from '../../zoho-request/zoho-api.types';
 export interface QualificationPlanEntry {
   _type?: 'QualificationPlanEntry';
   id?: string;
-  velpTECCourseId?: string;
+  companyCourseId?: string;
   mkReplacement?: boolean;
   kurse?: LookUp;
   startDateData?: Date;

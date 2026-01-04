@@ -2,9 +2,9 @@ import { LookUp, LookUpDTO } from '../../zoho-request/zoho-api.types';
 import { Attachment } from 'airtable/lib/attachment';
 import { Note } from '../note/note.type';
 import { QualificationPlanEntry } from '../qualification-plan-entry/qualification-plan-entry.type';
-import { AirtableBaseDTO } from '@velptec/airtable-lib';
+import { AirtableBaseDTO } from '@company/airtable-lib';
 import { ZohoCourseBaseDTO } from '../quote/quote.type';
-import { LearningPlanItem } from '@velptec/content-generation-lib';
+import { LearningPlanItem } from '@company/content-generation-lib';
 
 export type QualificationPlan = {
   // branding
@@ -27,7 +27,7 @@ export type QualificationPlan = {
 
 export interface ZohoBaseCourseAppointmentDTO extends ZohoCourseBaseDTO {
   id?: string;
-  velpTECCourseId?: string;
+  companyCourseId?: string;
   kurse: LookUp;
   measure: LookUp;
   startDate: string;
@@ -86,14 +86,14 @@ export interface AirtableCourseSortDTO {
 }
 
 export interface CourseSortDTO {
-  velptecId: string;
+  companyId: string;
   name: string;
   main_category_priority: number;
   sub_category_priority: number;
   level_priority: number;
   sub_level_priority: number;
   measureCertificateEntryId?: string;
-  pas?: ZohoVelpTECCourseIdDTO[];
+  pas?: ZohocompanyCourseIdDTO[];
   durationInWeeks: number;
   isMeasureStartCourse?: boolean;
   isMeasureEndCourse?: boolean;
@@ -149,13 +149,13 @@ export interface AirtableMeasuresDTO {
   certificate_full_time_teaching_units_per_week?: number[];
 }
 
-export interface ZohoVelpTECCourseIdDTO {
+export interface ZohocompanyCourseIdDTO {
   zohoId: string;
-  velptecId: string;
+  companyId: string;
 }
 
 export interface AirtableCourseDTO {
-  velptecId: string;
+  companyId: string;
   name: string;
   hours: number;
   main_category_priority: number;
@@ -163,15 +163,15 @@ export interface AirtableCourseDTO {
   level_priority: number;
   sub_level_priority: number;
   zohoId: string;
-  pas: ZohoVelpTECCourseIdDTO[];
+  pas: ZohocompanyCourseIdDTO[];
   durationInWeeks: number;
   course_content_topics_with_ue: string[];
   measureCertificateEntryId: string;
 }
 
 export interface CourseRelatedProjectWork {
-  velptecCourseId: string;
-  paIds: ZohoVelpTECCourseIdDTO[];
+  companyCourseId: string;
+  paIds: ZohocompanyCourseIdDTO[];
 }
 
 export interface AirtableLectureFreePeriodDTO {
@@ -182,6 +182,6 @@ export interface AirtableLectureFreePeriodDTO {
 }
 
 export interface CoursePAMapping {
-  velptecCourseId: string;
-  paIds: ZohoVelpTECCourseIdDTO[];
+  companyCourseId: string;
+  paIds: ZohocompanyCourseIdDTO[];
 }

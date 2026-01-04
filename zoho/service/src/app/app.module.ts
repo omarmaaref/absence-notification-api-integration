@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ZohoInternalApiModule } from '@velptec/zoho-api';
+import { ZohoInternalApiModule } from '@company/zoho-api';
 
 @Module({
   imports: [ZohoInternalApiModule],

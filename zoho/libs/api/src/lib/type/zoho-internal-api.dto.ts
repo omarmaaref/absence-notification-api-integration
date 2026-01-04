@@ -12,7 +12,7 @@ import {
   ZohoDeleteIds,
   ZohoDeleteAttachmentRequest,
   ZohoSearchQueryParam,
-} from '@velptec/zoho-types';
+} from '@company/zoho-types';
 import { IsArray } from 'class-validator';
 
 export class ZohoModulePathParam<T extends ZohoModules>

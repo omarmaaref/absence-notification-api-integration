@@ -12,7 +12,7 @@ import {
   ZohoDeleteByIdRequest,
   ZohoInternalGetRelatedRequest,
   ZohoInternalGetByIdRequest,
-} from '@velptec/zoho-types';
+} from '@company/zoho-types';
 import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import FormData from 'form-data';

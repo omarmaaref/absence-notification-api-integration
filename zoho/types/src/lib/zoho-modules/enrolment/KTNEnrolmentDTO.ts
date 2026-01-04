@@ -63,7 +63,7 @@ export class KTNEnrolmentDTO implements KTNEnrolment {
   @IsString()
   @IsOptional()
   @ValidateIf((object, value) => value !== null)
-  velpTECCourseId?: string;
+  companyCourseId?: string;
 
   @IsString()
   @IsOptional()

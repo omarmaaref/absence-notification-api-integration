@@ -1,7 +1,7 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { ZohoExternalApiService } from './zoho-external-api.service';
-import { UtilsModule } from '@velptec/utils-lib';
+import { UtilsModule } from '@company/utils-lib';
 
 @Module({
   imports: [HttpModule, UtilsModule],

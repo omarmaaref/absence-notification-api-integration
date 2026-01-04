@@ -37,16 +37,16 @@ import {
   ZohoUploadAttachmentRequest,
   ZohoCreateResponse,
   ZohoRequestParameters,
-} from '@velptec/zoho-types';
-import { ZohoModules } from '@velptec/zoho-types';
+} from '@company/zoho-types';
+import { ZohoModules } from '@company/zoho-types';
 import {
   ZohoResponse,
   ZohoAccessTokenResponse,
   ZohoAccessTokenErrorResponse,
-} from '@velptec/zoho-types';
-import { Attachment } from '@velptec/zoho-types';
+} from '@company/zoho-types';
+import { Attachment } from '@company/zoho-types';
 import FormData from 'form-data';
-import { UtilsService } from '@velptec/utils-lib';
+import { UtilsService } from '@company/utils-lib';
 
 @Injectable()
 export class ZohoExternalApiService {

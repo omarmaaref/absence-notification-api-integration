@@ -23,7 +23,7 @@ export interface KTNEnrolment {
   integrationMessages?: string;
   course_type?: string;
   measureCode?: string;
-  velpTECCourseId?: string;
+  companyCourseId?: string;
   azureUserId?: string;
   Status?: string; // pretty sure this in NOT just any string
   certificate_entry_id?: string;

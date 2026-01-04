@@ -25,7 +25,7 @@ import { DegreeDesignation } from './degree-designation/degree-designation.types
 import { CourseEnrollment } from './course-enrollment/course-enrollment.type';
 import { InfoEvent } from './demoveranstaltungen/info-event.type';
 import { AbsenceNotification } from './absence-notification/absence-notification.type';
-import { ContactRole } from '@velptec/zoho-types';
+import { ContactRole } from '@company/zoho-types';
 
 /****************************************
  *

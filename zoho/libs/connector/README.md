@@ -7,7 +7,7 @@ A NestJS library that provides a connector to the internal Zoho service. This li
 This library is part of the monorepo. Import it in your module:
 
 ```typescript
-import { ZohoInternalConnectorModule } from '@velptec/zoho-connector';
+import { ZohoInternalConnectorModule } from '@company/zoho-connector';
 
 @Module({
   imports: [ZohoInternalConnectorModule],
@@ -26,8 +26,8 @@ Inject the `ZohoInternalConnectorService` into your service:
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { ZohoInternalConnectorService } from '@velptec/zoho-connector';
-import { Lead, Contact, Account } from '@velptec/zoho-types';
+import { ZohoInternalConnectorService } from '@company/zoho-connector';
+import { Lead, Contact, Account } from '@company/zoho-types';
 
 @Injectable()
 export class YourService {
@@ -411,7 +411,7 @@ await this.zohoConnector.deleteAttachmentByName<Lead>({
 
 ## Supported Zoho Modules
 
-The connector supports all Zoho modules defined in `@velptec/zoho-types`, including:
+The connector supports all Zoho modules defined in `@company/zoho-types`, including:
 
 - `Lead` → 'Leads'
 - `Contact` → 'Contacts'

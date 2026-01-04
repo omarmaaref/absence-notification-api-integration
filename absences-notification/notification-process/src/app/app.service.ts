@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { AcroformPdfEditorService, AcroformPdfFillData } from '@velptec/acroform-pdf-editor';
-import { ZohoInternalConnectorService } from '@velptec/zoho-connector';
+import { AcroformPdfEditorService, AcroformPdfFillData } from '@company/acroform-pdf-editor';
+import { ZohoInternalConnectorService } from '@company/zoho-connector';
 import {
   Absence,
   Deal,
@@ -8,7 +8,7 @@ import {
   AbsenceNotification,
   AbsenceNotificationStatus,
   Contact,
-} from '@velptec/zoho-types';
+} from '@company/zoho-types';
 
 type DealAbsenceSummary = {
   deal: Deal;

@@ -30,7 +30,7 @@ export interface ZohoCourseBaseDTO extends ZohoBaseDTO {
   endDate?: string;
   kurse?: LookUp;
   measure?: LookUp;
-  velpTECCourseId?: string;
+  companyCourseId?: string;
   mkReplacement?: boolean;
   Course_id_new?: string;
   teaching_units?: number;
@@ -40,7 +40,7 @@ export interface ZohoCourseBaseDTO extends ZohoBaseDTO {
 
 export interface CreateZohoBaseCourseAppointmentDTO extends ZohoCourseBaseDTO {
   id?: string;
-  velpTECCourseId?: string;
+  companyCourseId?: string;
   kurse?: LookUp;
   Kurse?: LookUp;
   measure?: LookUp;

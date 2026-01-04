@@ -14,8 +14,8 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { ZohoExternalApiService } from '@velptec/zoho-external-connector';
-import { ZohoCreateResponse, ZohoModules } from '@velptec/zoho-types';
+import { ZohoExternalApiService } from '@company/zoho-external-connector';
+import { ZohoCreateResponse, ZohoModules } from '@company/zoho-types';
 import {
   ZohoCreateTriggerBody,
   ZohoDeleteAttachmentPathParam,
@@ -29,7 +29,7 @@ import {
 } from './type/zoho-internal-api.dto';
 import { Express } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Roles, UserGuard } from '@velptec/user-lib';
+import { Roles, UserGuard } from '@company/user-lib';
 
 @Injectable()
 @UseGuards(UserGuard)

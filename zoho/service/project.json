@@ -115,8 +115,8 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker build -f {projectRoot}/deployment/Dockerfile . -t registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service:latest -t registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service:$(node -p \"require('./{projectRoot}/package.json').version\")",
-          "docker push registry.gitlab.com/innovateweb/velptec/tools/toolbox/zoho-service --all-tags"
+          "docker build -f {projectRoot}/deployment/Dockerfile . -t registry.gitlab.com/innovateweb/company/tools/toolbox/zoho-service:latest -t registry.gitlab.com/innovateweb/company/tools/toolbox/zoho-service:$(node -p \"require('./{projectRoot}/package.json').version\")",
+          "docker push registry.gitlab.com/innovateweb/company/tools/toolbox/zoho-service --all-tags"
         ]
       }
     }
